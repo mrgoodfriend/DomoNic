@@ -1,0 +1,61 @@
+<ion-view title="Devices">
+  <ion-nav-buttons side="left">
+    <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+  </ion-nav-buttons>
+  <ion-content class="has-header">
+    <!-- <h1>Devices - {{titre}}</h1> -->
+	<!-- {{devices}} -->
+	
+     <!-- <ion-list>
+      <ion-item > -->
+     <table>
+	 <tr>
+	 
+	 <th>id</th>
+	 <th>name</th>
+	 <th>icon</th>
+	 <th>last_seen</th>
+	 <th>enabled</th>
+	 <th>hide</th>
+	 <th>dimable</th>
+	 <th>switchable</th>
+	 <th>batterystatus</th>
+	 <th>location_id</th>
+	 <th>location name</th>
+	 <th>value1</th>
+	 <th>value2</th>
+	 <th>value3</th>
+	 <th>value4</th>
+	 </tr>
+	 <tr ng-repeat="device in devices">
+	 <td>{{device.device_id}}</td>
+	 <td>{{device.name}}</td>
+	 <td>{{device.icon}}</td>
+	 <td>{{device.lastseen}}</td>
+	 <td>
+	 <label class="checkbox">
+       <input type="checkbox" ng-checked={{device.enabled}} >
+     </label></td>
+	 <td>
+	  <label class="checkbox">
+       <input type="checkbox" ng-checked={{device.hide}}  ng-readonly=true >
+     </label></td>
+	 <td>
+	  <label class="checkbox">
+       <input type="checkbox" ng-checked={{device.dimable}}  ng-readonly=true >
+     </label></td>
+	 <td>
+	 <label class="checkbox">
+       <input type="checkbox" ng-checked={{device.switchable}}  ng-readonly=true >
+     </label></td>
+	 <td>{{device.batterystatus}}</td>
+	 <td>{{device.location_id}}</td>
+	 <td>{{device.locationname}}</td>
+	 <td ng-repeat="value in device.values">
+	 {{value.value}}{{value.units}}</td>	 	 
+	 </tr>
+	 </table>
+      <!-- </ion-item>
+    </ion-list> -->
+  </ion-content>
+</ion-view>

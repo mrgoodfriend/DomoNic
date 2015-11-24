@@ -1,0 +1,75 @@
+<ion-view title="Switchables devices">
+  <ion-nav-buttons side="left">
+    <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+  </ion-nav-buttons>
+  <ion-content class="has-header">
+  <ion-refresher on-refresh="doRefresh()">
+  </ion-refresher>
+	<ul class="list">
+
+  <li class="item item-toggle" ng-repeat="device in devices  ">
+     {{device.name}}
+     <label class="toggle">
+       <input type="checkbox" ng-checked={{device.checked}} ng-model="confirmed" ng-change="change({{device.device_id}},{{device.checked}})">
+       <div class="track">
+         <div class="handle"></div>
+       </div>
+     </label>
+  </li>
+
+  
+
+</ul>
+	
+	
+     <table ng-if="!params.debug">
+	 <tr>
+	 
+	 <th>id</th>
+	 <th>name</th>
+	 <th>icon</th>
+	 <th>last_seen</th>
+	 <th>enabled</th>
+	 <th>hide</th>
+	 <th>dimable</th>
+	 <th>switchable</th>
+	 <th>batterystatus</th>
+	 <th>location_id</th>
+	 <th>location name</th>
+	 <th>value1</th>
+	 <th>value2</th>
+	 <th>value3</th>
+	 <th>value4</th>
+	 </tr>
+	 <tr ng-repeat="device in devices  | filter:{ switchable: 'true'}" >
+	 <td>{{device.device_id}}</td>
+	 <td>{{device.name}}</td>
+	 <td>{{device.icon}}</td>
+	 <td>{{device.lastseen}}</td>
+	 <td>
+	 <label class="checkbox">
+       <input type="checkbox" ng-checked={{device.enabled}} >
+     </label></td>
+	 <td>
+	  <label class="checkbox">
+       <input type="checkbox" ng-checked={{device.hide}}  ng-readonly=true >
+     </label></td>
+	 <td>
+	  <label class="checkbox">
+       <input type="checkbox" ng-checked={{device.dimable}}  ng-readonly=true >
+     </label></td>
+	 <td>
+	 <label class="checkbox">
+       <input type="checkbox" ng-checked={{device.switchable}}  ng-readonly=true >
+     </label></td>
+	 <td>{{device.batterystatus}}</td>
+	 <td>{{device.location_id}}</td>
+	 <td>{{device.locationname}}</td>
+	 <td ng-repeat="value in device.values">
+	 {{value.value}}{{value.units}}</td>	 	 
+	 </tr>
+	 </table>
+      <!-- </ion-item>
+    </ion-list> -->
+  </ion-content>
+</ion-view>

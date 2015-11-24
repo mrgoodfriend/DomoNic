@@ -1,0 +1,46 @@
+<div class="modal">
+  <ion-header-bar>
+    <h1 class="title">Paramètres</h1>
+    <div class="buttons">
+      <button class="button button-clear" ng-click="closeParams()">Close</button>
+    </div>
+  </ion-header-bar>
+  <ion-content>
+    <form ng-submit="doSave()">
+      <div class="list">
+	    <label class="item item-input">
+          <span class="input-label">Server Address</span>
+          <input type="text" ng-model="params.server">
+        </label>
+        <label class="item item-input">
+          <span class="input-label">Username</span>
+          <input type="text" ng-model="params.username">
+        </label>
+        <label class="item item-input">
+          <span class="input-label">Password</span>
+          <input type="password" ng-model="params.password">
+        </label>
+		 <ul class="list">
+
+  <li class="item item-toggle">
+     Debug
+     <label class="toggle toggle-assertive">
+       <input type="checkbox" ng-model="cb_debug"  ng-change="change_debug(cb_debug)">
+       <div class="track">
+         <div class="handle"></div>
+       </div>
+     </label>
+  </li>
+
+  
+
+</ul>
+    
+        <label class="item">
+          <button class="button button-block button-positive" type="submit">Save parameters</button>
+        </label>
+      </div>
+    </form>
+  </ion-content>
+</div>
+

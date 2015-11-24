@@ -1,0 +1,183 @@
+
+  <ion-nav-buttons side="left">
+    <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+
+  </ion-nav-buttons>
+
+<ion-view title="Home">
+
+<ion-tabs class="tabs-positive tabs-striped tabs-icon-top" >
+ 
+  <ion-tab title="Home" icon-on="ion-home" icon-off="ion-home"  >
+    <!-- Tab 1 content -->
+	<!-- </ion-view> -->
+
+	 <ion-view title="Server">
+	 <ion-content class="has-header">
+ <ion-refresher on-refresh="doRefresh()">
+</ion-refresher> 
+    <div class="row responsive-lg">
+  
+<div class="col" ng-controller="ThermostatCtrl">
+    <div class=" list card">
+ <div class="item item-icon-left item-divider">
+    <i class="icon ion-home"></i>Mode Maison
+  </div>
+  
+ 
+  
+<div class="item ">
+  
+  <label class="item item-input item-select">
+    <div class="input-label">
+    Mode
+    </div>
+  
+	 <select ng-model="selectedScenario" ng-change="setScenario(selectedScenario)" ng-options="scenari.name as scenari.name for scenari in scenarii.result " >
+	
+      
+    </select>
+  </label>
+  
+	 </div>
+
+  
+
+</div>
+  
+  </div>
+  <div class="col" ng-controller="ThermostatCtrl">
+   <div class=" list card">
+ <div class="item item-icon-left item-divider">
+    <i class="icon ion-thermometer"></i>Temperature
+  </div>
+  
+ 
+  
+<div class="item ">
+  
+  <label class="item item-input item-select">
+    <div class="input-label">
+    Scenario
+    </div>
+  <!-- <select ng-model="selectedScenario" ng-change="setScenario(selectedScenario)"> -->
+	 <select ng-model="selectedScenario" ng-change="setScenario(selectedScenario)" ng-options="scenari.name as scenari.name for scenari in scenarii.result " >
+	
+	<!-- <option ng-repeat="scenari in scenarii.result"  ng-selected="scenari.name == scenario.result.scenario_name" >{{scenari.name}}</option> -->
+	<!--<option  ng-selected="scenari.name == scenario.result.scenario_name" >{{scenari.name}}</option>    -->
+      <!--<option selected>Green</option>-->
+      
+    </select>
+  </label>
+  
+	<div class="button-bar">
+   <button class="button ">{{scenario.result.current_temp}}°C</button>
+
+  </div>
+ 
+  
+	<div class="button-bar">
+   <button class="button button-positive" on-tap="change('-')"><i class="icon ion-minus-round"></i></button><button class="button">{{scenario.result.request_temp}}°C</button><button class="button  button-assertive "  on-tap="change('+')"><i class="icon ion-plus-round"></i></button>
+
+  </div>
+  </div>
+
+  
+
+</div>
+  
+  </div>
+
+  <div class="col" ng-controller="SwitchablesCtrl">
+    <div class=" list card">
+ <div class="item item-icon-left item-divider">
+    <i class="icon ion-toggle-filled"></i>Switchable
+  </div>
+  
+ 
+  
+	<ul class="list">
+
+  <li class="item item-toggle" ng-repeat="device in devices  ">
+     {{device.name}}
+     <label class="toggle">
+       <input type="checkbox" ng-checked={{device.checked}} ng-model="confirmed" ng-change="change({{device.device_id}},{{device.checked}})">
+       <div class="track">
+         <div class="handle"></div>
+       </div>
+     </label>
+  </li>
+  </ul>
+
+</div>
+  
+  </div>
+ </div>
+ <div class="row responsive-lg">
+  <div class="col">
+    <button class="button button-block button-positive">Button</button>
+  </div>
+  <div class="col">
+    <button class="button button-block">Button</button>
+  </div>
+  <div class="col">
+    <button class="button button-block">Button</button>
+  </div>
+
+</div>
+
+ 
+</div>
+
+  </ion-content>
+	</ion-view>
+  </ion-tab>
+  <ion-tab ng-repeat="n in tabs" title="{{n.name}}" icon="ion-location" show-when="large">
+    <!-- Tab 2 content -->
+	 <!-- <ion-view title="Server"> -->
+	 <!-- <ion-content class="has-header"> -->
+	 <ion-list>
+       <ion-item >
+		 : {{ipaddress}}
+      </ion-item>
+	  <ion-item >
+		Version : {{version}}
+      </ion-item>
+	   <ion-item >
+		Uptime : {{uptime.uptime_str}}
+      </ion-item>
+    </ion-list>
+<!-- </ion-content> -->
+
+	<!-- </ion-view> -->
+  </ion-tab>
+
+  <!-- <ion-tab title="Settings" icon-on="ion-ios-gear" icon-off="ion-ios-gear-outline">
+    Tab 3 content 
+	 <ion-view title="Server">
+	 <ion-content class="has-header">
+	 <ion-list >
+      
+	  <ion-item >
+		 : {{ipaddress}}
+      </ion-item>
+	  <ion-item >
+		Version : {{version}}
+      </ion-item>
+	   <ion-item >
+		Uptime : {{uptime.uptime_str}}
+      </ion-item>
+    </ion-list>
+</ion-content>
+
+	</ion-view>
+  </ion-tab>
+
+</ion-tabs> -->
+  
+  
+  
+  
+  <!--   -->
+  
+

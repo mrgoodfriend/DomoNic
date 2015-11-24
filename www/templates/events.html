@@ -1,0 +1,56 @@
+<ion-view title="Events">
+  <ion-nav-buttons side="left">
+    <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+  </ion-nav-buttons>
+  <ion-content class="has-header">
+    <!-- <h1>Events - {{titre}}</h1> -->
+	<!-- {{devices}} -->
+	
+     <!-- <ion-list>
+      <ion-item > -->
+     <table>
+	 <tr>
+	 
+	 <th>id</th>
+	 <th>enabled</th>
+	 <th>name</th>
+	 <th>log</th>
+	 <th>firstrun</th>
+	 <th>lastrun</th>
+	 <th>comments</th>
+	 <th>trigger1</th>
+	 <th>condition1</th>
+	 <th>operand</th>
+	 <th>condition2</th>
+	 <th>rerunenabled</th>
+	 
+	 </tr>
+	 <tr ng-repeat="event in events">
+	 <td>{{event.event_id}}</td>
+	 <td>{{event.enabled}}
+	 <label class="checkbox">
+       <input type="checkbox">
+     </label></td></td>
+	 <td>{{event.name}}</td>
+	 <td>{{event.log}}
+	 <label class="checkbox">
+       <input type="checkbox">
+	 </td>	 
+	 <td>{{event.firstrun}}</td>
+	 <td>{{event.lastrun}}</td>
+	 <td>{{event.comments}}</td>
+	 <td>{{event.trigger1}}</td>
+	 <td>{{event.condition1}}</td>
+	 <td>{{event.operand}}</td>
+	 <td>{{event.condition2}}</td>
+	  <td>{{event.rerunenabled}}
+	 <label class="checkbox">
+       <input type="checkbox">
+	 </td>
+	  
+	 </tr>
+	 </table>
+      <!-- </ion-item>
+    </ion-list> -->
+  </ion-content>
+</ion-view>

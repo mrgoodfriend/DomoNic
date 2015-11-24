@@ -1,0 +1,120 @@
+<ion-view title="Thermostat">
+  <ion-nav-buttons side="left">
+    <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+  </ion-nav-buttons>
+  <ion-content class="has-header">
+  <ion-refresher on-refresh="doRefresh()">
+  </ion-refresher>
+    <h1>{{titre}}</h1>
+	<!-- {{devices}} -->
+	
+     <!-- <ion-list>
+      <ion-item > -->
+	  
+	 <!--   <ion-list>
+      <ion-item ng-repeat="device in devices  | filter:{ switchable: 'true'}">
+		{{device.name}}
+		<label class="toggle toggle-assertive">
+   <input type="checkbox">
+   <div class="track">
+     <div class="handle"></div>
+   </div>
+</label>
+		</ion-item>
+	  
+    </ion-list> -->
+	<div class=" list card">
+ <div class="item item-icon-left item-divider">
+    <i class="icon ion-thermometer"></i>Temperature
+  </div>
+  
+ 
+  
+<div class="item ">
+  
+  <label class="item item-input item-select">
+    <div class="input-label">
+    Scenario
+    </div>
+  <!-- <select ng-model="selectedScenario" ng-change="setScenario(selectedScenario)"> -->
+	 <select ng-model="selectedScenario" ng-change="setScenario(selectedScenario)" ng-options="scenari.name as scenari.name for scenari in scenarii.result " >
+	
+	<!-- <option ng-repeat="scenari in scenarii.result"  ng-selected="scenari.name == scenario.result.scenario_name" >{{scenari.name}}</option> -->
+	<!--<option  ng-selected="scenari.name == scenario.result.scenario_name" >{{scenari.name}}</option>    -->
+      <!--<option selected>Green</option>-->
+      
+    </select>
+  </label>
+  
+	<div class="button-bar">
+   <button class="button ">{{scenario.result.current_temp}}°C</button>
+
+  </div>
+ 
+  
+	<div class="button-bar">
+   <button class="button button-positive" on-tap="change('-')"><i class="icon ion-minus-round"></i></button><button class="button">{{scenario.result.request_temp}}°C</button><button class="button  button-assertive "  on-tap="change('+')"><i class="icon ion-plus-round"></i></button>
+
+  </div>
+  </div>
+
+  
+
+</div>
+  
+</div>
+	
+	
+	<ul class="list" ng-if="!params.debug">
+	
+	
+	<a class="item item-icon-left" href="#">
+    <i class="icon ion-mic-a"></i>
+    Scenario #
+    <span class="badge badge-assertive">
+      {{scenario.result.scenario_id}}
+    </span>
+  </a>
+  	<a class="item item-icon-left" href="#">
+    <i class="icon ion-mic-a"></i>
+    Scenario name
+    <span class="badge badge-assertive">
+      {{scenario.result.scenario_name}}
+    </span>
+  </a>
+	<a class="item item-icon-left" href="#">
+    <i class="icon ion-mic-a"></i>
+    Heating
+    <span class="badge badge-assertive">
+      {{scenario.result.heating_name}}
+    </span>
+  </a>
+  <a class="item item-icon-left" href="#">
+    <i class="icon ion-mic-a"></i>
+    Current temp
+    <span class="badge badge-assertive">
+      {{scenario.result.current_temp}}
+    </span>
+  </a>
+  <a class="item item-icon-left" href="#">
+    <i class="icon ion-mic-a"></i>
+    Request temp
+    <span class="badge badge-assertive">
+      {{scenario.result.request_temp}}
+    </span>
+  </a>
+	
+ 
+
+  
+
+</ul>
+	
+	
+     <p ng-if="debug">
+	 {{scenario}}
+	 <p>
+      <!-- </ion-item>
+    </ion-list> -->
+  </ion-content>
+</ion-view>

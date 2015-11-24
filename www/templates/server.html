@@ -1,0 +1,60 @@
+<ion-nav-buttons side="left">
+    <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+  </ion-nav-buttons>
+
+<ion-view title="Server">
+</ion-view>
+ 
+
+ <ion-tabs class="tabs-positive tabs-striped tabs-icon-top" >
+ 
+  <ion-tab title="Home" icon-on="ion-home" icon-off="ion-home"  >
+    <!-- Tab 1 content -->
+	 <ion-view title="Server">
+	 <ion-content class="has-header">
+	 <ion-list >
+      <ion-item >
+		Host : {{hostname}}
+		</ion-item>
+	  <ion-item >
+		IP : {{ipaddress}}
+      </ion-item>
+	  <ion-item >
+		Version : {{version}}
+      </ion-item>
+	   <ion-item >
+		Uptime : {{uptime.uptime_str}}
+      </ion-item>
+    </ion-list>
+</ion-content>
+
+	</ion-view>
+  </ion-tab>
+
+  <ion-tab title="About" icon-on="ion-ios-clock" icon-off="ion-ios-clock-outline">
+    <!-- Tab 2 content -->
+	 <ion-view title="Server">
+	 <ion-content class="has-header">
+	 <ion-list >
+      
+	  <ion-item >
+		IP : {{ipaddress}}
+      </ion-item>
+	  <ion-item >
+		Version : {{version}}
+      </ion-item>
+	   <ion-item >
+		Uptime : {{uptime.uptime_str}}
+      </ion-item>
+    </ion-list>
+</ion-content>
+
+	</ion-view>
+  </ion-tab>
+
+  <ion-tab title="Settings" icon-on="ion-ios-gear" icon-off="ion-ios-gear-outline">
+    <!-- Tab 3 content -->
+  </ion-tab>
+
+</ion-tabs>
+

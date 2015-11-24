@@ -132,7 +132,7 @@
   </ion-content>
 	</ion-view>
   </ion-tab>
-  <ion-tab ng-repeat="n in tabs" title="{{n.name}}" icon="ion-location" show-when="large">
+  <ion-tab ng-if="tabs=false" ng-repeat="n in tabs" title="{{n.name}}" icon="ion-location" show-when="large">
     <!-- Tab 2 content -->
 	 <!-- <ion-view title="Server"> -->
 	 <!-- <ion-content class="has-header"> -->
